@@ -1,0 +1,19 @@
+rule all:
+    input:
+        "results\\boosting_accuracy.txt"
+
+rule preprocess_data:
+    input:
+        "train.csv"
+    output:
+        "data\\preprocessed.csv"
+    script:
+        "scripts\\preprocess_data.py"
+
+rule train_boosting:
+    input:
+        "data\\preprocessed.csv"
+    output:
+        "results\\boosting_accuracy.txt"
+    script:
+        "scripts\\train_boosting.py"
